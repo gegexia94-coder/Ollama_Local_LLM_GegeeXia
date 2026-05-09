@@ -1,20 +1,14 @@
 import ollama
 
-data = {
-    "name": "Marta Verde",
-    "age": 37,
-    "city": "Trento",
-    "profession": "designer di spazi naturali per il benessere",
-}
-
+input_text = "Nel nuovo parco di quartiere, le persone possono camminare tra gli alberi, leggere sulle panchine e partecipare a piccoli incontri dedicati al benessere. Lo spazio è nato per unire natura, relax e vita sociale."
 
 response = ollama.chat(
     model="llama3.2",
     messages=[
-        {"role": "user", "content": f"Trasforma questi dati in una descrizione naturale, breve e armoniosa. Parla di società, natura e rilassamento senza inventare dati nuovi. Rispondi solo con la descrizione:\n\n{data}"}
+        {"role": "user", "content": f"Crea 3 domande di comprensione semplici su questo testo. Rispondi solo con le domande numerate:\n\n{input_text}"}
     ],
 )
 
-print("Dati:", data)
-print("Descrizione:")
+print("Testo:", input_text)
+print("Domande:")
 print(response["message"]["content"])
